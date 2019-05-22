@@ -375,7 +375,7 @@ pub fn lang_from_ext(filepath: &str) -> Lang {
 
         "f" | "for" | "ftn" | "f77" | "pfo" => FortranLegacy,
         "f03" | "f08" | "f90" | "f95" => FortranModern,
-        "makefile" | "mk" => Makefile,
+        "makefile" | "mk" | "dec" | "dsc" | "fdf" | "inf" | "uni" | "inc" => Makefile,
         "mm" => ObjectiveCpp,
         "nim" => Nim,
         "nix" => Nix,
@@ -394,7 +394,7 @@ pub fn lang_from_ext(filepath: &str) -> Lang {
         "json" => Json,
         "markdown" | "md" => Markdown,
         "rst" => ReStructuredText,
-        "text" | "txt" => Text,
+        "text" | "txt" | "asl" | "asi" | "aslc" | "vfr" | "dectest" | "patch" | "g" | "uue" | "template" | "readme" | "changelog" | "pck" | "softfloat-macros" | "configure" | "softfloat-specialize" | "env" | "vcproj" | "license" | "rtf" | "vfi" | "faq" | "g4" => Text,
 
         "polly" => Polly,
         "ps1" | "psd1" | "psm1" => PowerShell,
@@ -407,7 +407,7 @@ pub fn lang_from_ext(filepath: &str) -> Lang {
         "re" | "rei" => Reason,
         "rhtml" | "erb" => RubyHtml,
         "rs" => Rust,
-        "s" | "asm" => Assembly,
+        "s" | "asm" | "nasm" | "asm16" => Assembly,
         "sass" | "scss" => Sass,
         "sc" | "scala" => Scala,
         "sls" => SaltStack,
