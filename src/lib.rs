@@ -40,6 +40,7 @@ pub struct LangTotal {
 #[derive(Debug, PartialEq, Eq, PartialOrd, Ord, Hash, Copy, Clone)]
 pub enum Lang {
     ActionScript,
+    Acpi,
     Ada,
     Agda,
     AmbientTalk,
@@ -164,6 +165,7 @@ impl Lang {
     pub fn to_s(&self) -> &str {
         match *self {
             ActionScript     => "ActionScript",
+            Acpi             => "Acpi",
             Ada              => "Ada",
             Agda             => "Agda",
             AmbientTalk      => "AmbientTalk",
@@ -325,10 +327,11 @@ pub fn lang_from_ext(filepath: &str) -> Lang {
         "ada" | "adb" | "ads" | "pad" => Ada,
         "agda" => Agda,
         "as" => ActionScript,
+        "asl" | "asi" => Acpi,
         "at" => AmbientTalk,
         "awk" => Awk,
         "bat" | "btm" | "cmd" => Batch,
-        "c" | "ec" | "pgc" => C,
+        "c" | "ec" | "pgc" | "act" => C,
         "cc" | "cpp" | "cxx" | "c++" | "pcc" => Cpp,
         "cfc" => ColdFusionScript,
         "cmake" => CMake,
@@ -526,7 +529,7 @@ pub fn counter_config_for_lang<'a>(lang: Lang) -> (SmallVec<[&'a str; 3]>, Small
 
 
         // TODO(cgag): not 100% sure that yacc belongs here.
-        AmbientTalk | C | CCppHeader | Rust | Yacc | ActionScript | ColdFusionScript | Css | Cpp | CUDA
+        AmbientTalk | Acpi | C | CCppHeader | Rust | Yacc | ActionScript | ColdFusionScript | Css | Cpp | CUDA
         | CUDAHeader | CSharp | Dart | DeviceTree | Glsl | Go | Jai | Java | JavaScript | Jsx
         | Kotlin | Less | LinkerScript | ObjectiveC | ObjectiveCpp | OpenCl | Qcl | Sass | Scala | Swift
         | TypeScript | Tsx | UnrealScript | Stylus | Qml | Haxe | Groovy | Reason | Solidity => c_style,
